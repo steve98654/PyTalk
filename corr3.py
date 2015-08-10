@@ -23,15 +23,15 @@ dte1 = '2010-07-01'
 dte2 = '2015-07-01'
 
 df = pd.read_pickle('close_price.pkl')
-tickers = sorted(list(set(df['Symbol'].values)))
-tkrlens = [len(df[df.Symbol==tkr][dte1:dte2]) for tkr in tickers]
+tickers = sorted(list(set(df['Ticker'].values)))
+tkrlens = [len(df[df.Ticker==tkr][dte1:dte2]) for tkr in tickers]
 tkrmode = mode(tkrlens)[0][0]
 
 good_tickers = [tickers[i] for i,tkr in enumerate(tkrlens) if tkrlens[i]==tkrmode]
 
 rtndf = pd.DataFrame()
 for tkr in good_tickers: 
-    tmpdf = df[df.Symbol==tkr]['Adj Close'][dte1:dte2]
+    tmpdf = df[df.Ticker==tkr]['Adj Close'][dte1:dte2]
     tmprtndf = ((tmpdf-tmpdf.shift(1))/tmpdf).dropna()
     rsdf = tmprtndf/tmprtndf.std()
     rtndf = pd.concat([rtndf, rsdf],axis=1)
@@ -58,7 +58,7 @@ ncorrdf = pd.DataFrame(ncorr,columns=good_tickers,index=good_tickers)
 
 # Start the clustering 
 
-sns.clustermap(ncorrdf)
+sns.clustermap(1-abs(ncorrdf))
 plt.show()
 
 
