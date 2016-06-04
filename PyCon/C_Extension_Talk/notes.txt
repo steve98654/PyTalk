@@ -1,0 +1,11 @@
+Paul Ross 
+works for Man AHL 20bn AUM  
+notes for c extension talk 
+https://us.pycon.org/2016/schedule/presentation/2125/
+
+https://github.com/manahl/arctic
+
+Examples of writing c-extensions in Python: 
+https://github.com/paulross
+twitter.com/manahltech
+

@@ -1,0 +1,5 @@
+get slides later! 
+https://us.pycon.org/2016/schedule/presentation/1699/
+github url: 
+github.com/csojinb/git-under-the-hood
+@csojinb

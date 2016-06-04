@@ -1,0 +1,28 @@
+-- Tutorial Email
+Hello there!
+
+I hope you're getting excited for the tutorial on Saturday. I just wanted to reach out to everyone, so you know what to expect.
+
+You can see a full copy of the tutorial and the expected plans on the website here: http://sphinx-tutorial.readthedocs.io I tried to break things up into 30-minute chunks so that we can make sure we're all on the same page every so often. I've done this before and it seems to work well.
+
+If you want to be prepared, you can make sure that you have Sphinx installed (``pip install Sphinx``). I'll also have a USB drive with requirements if you need them and the internet isn't working.
+
+If you're new to Python or Sphinx, it might also help to work through the "set up" steps beforehand (http://sphinx-tutorial.readthedocs.io/start/). There is time allotted during the tutorial to do this, so don't feel like you have to do it up front, as you might be bored during that part!
+
+Another good pre-planning resource if you want something to look at is to read through the RST syntax in the Sphinx documentation: http://www.sphinx-doc.org/en/stable/rest.html -- again, we'll be covering a good subset of this in the tutorial, but it doesn't hurt to get started early!
+
+Looking forward to meeting all of you on Saturday.
+
+Cheers,
+Eric
+
+-- author ran largest doc conference a few weeks ago and said sphinx has the best tools.  was 
+specifically built for python as well .. prob best for python
+
+-- read the docs ... basically ci for sphinx as well as hosting ... put it in your travis.ci
+-- has post commit hooks
+
+tutorial URL: 
+
+sphinx-tutorial.readthedocs.io/start
+

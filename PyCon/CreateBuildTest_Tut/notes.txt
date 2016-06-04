@@ -1,0 +1,40 @@
+-- Initial Email
+
+New Email from Titus Brown regarding #1814 Creating, building, testing, and documenting a Python project - a hands-on HOWTO (Titus Brown).
+
+----------------------------------------------------------------------------
+
+Hi all,
+
+for our tutorial on Saturday afternoon, could you please make sure you have git and Python 3.5 installed, as well as a few Python packages? You'll also need github, pypi, and ReadTheDocs  accounts.
+
+Details here --
+
+https://github.com/dib-lab/2016-pycon-tutorial/blob/master/README.md
+
+and install instructions here: 
+https://github.com/dib-lab/2016-pycon-tutorial/blob/master/INSTALL.md
+
+Please drop us a note (you can just e-mail titus@idyll.org) if you have any questions or run into any problems.
+
+See you tomorrow!
+
+best,
+--titus (and luiz and camille)
+
+
+Notes:
+-- vet medicine by training not devs.  run everything automatically using free softwrad 
+-- drone.io free continuous integration like travis ... very easy to set up. 
+-- $py.test --cov=.  gives you unit test coverage stats!  
+-- codecov.io -- free code coverage analysis
+-- !!nose is no longer supported ... everyone is using to pytest.  recommend pytest becoming more popular. 
+-- drone.io monitors different branches 
+-- method is to do PR's ... if PR branch passes the test, then start code review .. if not ask to pass tests.   else start code review and if passes merge   
+
+-- to do local html do this:
+-- $ py.text --cov=./ --cov-report=html 
+-- in python 3, we have: $ python -m http.server  instead of $ python -m SimpleHTTPServer
+-- readthedocs documentation is available at: 
+   http://pycon-tutorial-steve98564.readthedocs.io/en/latest/
+   and is automatically updated as we commit. 

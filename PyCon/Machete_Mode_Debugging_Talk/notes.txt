@@ -1,0 +1,7 @@
+URL for slides:
+
+http://nedbatchelder.com/text/machete.html
+bitly.com/mdebug
+
+*.pth file in site-packages will execute any line that begins with "import"
+and appends all others to sys.path 

@@ -1,0 +1,9 @@
+-- works on python cryptography module 
+-- define compiler, libraries.
+-- windows crt ... everything needs to be compiled with same compiler 
+-- whl preferable over eggs ... pip wheel ... (switch to wheels?)
+-- loop up lipo to check for universal later 
+-- wheel vs egg https://wheel.readthedocs.io/en/latest/
+-- manylinux1: https://github.com/pypa/manylinux
+-- set up test/build wheel process ... build for all plats, import, etc. 
+-- need current pip versions 8.0+ to work 

@@ -1,0 +1,6 @@
+Notes about lambda AWS 
+@benzobat 
+
+-- does not use in house servers ... all on AWS
+-- aws.amazon.com/lambda
+-- only pay for the time that you functions run on lambda 

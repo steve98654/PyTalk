@@ -1,0 +1,29 @@
+-- Initial Email
+
+New Email from Christie Wilson regarding #1815 Introduction to Unit Testing in Python with Pytest (Michael Tom-Wing).
+
+----------------------------------------------------------------------------
+
+Hello everyone,
+
+We are very excited about the tutorial tomorrow! We've noticed that the wifi here is a bit unreliable, so if you get a chance you can download your fork of the repo and your dependencies by following along with step 1: https://github.com/keeppythonweird/catinabox/blob/master/steps/1-run_tests.md#setup-your-environment-and-run-the-tests
+
+* A note about forks *
+If you forked the repo already (i.e. before this email was sent out) we highly recommend you completely delete your fork and start over again! We have added some new content to the repo that will be missing from your fork. Sorry for the complication! If you don't want to delete your fork we can help you out tomorrow.
+
+Thanks, see you tomorrow!
+
+pytest has profiling tools as well: 
+https://pytest.org/latest/example/simple.html#profiling-test-duration
+
+Notes:
+-- presenters are from demonware and maintain testing infra there ... e.g. do testing almost full time
+-- less boiler plate code in pytest, e.g. instead of assertEqual we can just use == 
+-- big advocates for pytest over unit/nose tests
+-- looks for functions whose name starts with test_
+-- py.test can enforce PEP8 and will throw error if code is not PEP8 compliant!
+-- automatically calculates unit test coverage and tells you lines that are missing coverage
+-- uses Travis CI for continuous integrate ... build means "run the unit tests"
+-- fixtures replace setup and teardown in py.test
+-- integrated with mock.  easy to patch built-ins, e.g. patch randn() = 7.
+-- easy to parameterize multiple inputs for same function

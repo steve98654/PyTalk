@@ -1,0 +1,8 @@
+Stuart Williams
+http://bit.ly/pycon2016-epiphanies
+stuart@swilliams.ca
+
+
+Notes: 
+see pdf file for full tutorial.
+use functools lru.cache for caching ... other python tools? memozation decorator as well, beaker caching lib

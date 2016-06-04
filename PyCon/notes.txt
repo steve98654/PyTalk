@@ -1,0 +1,94 @@
+Major themes from PyCon 
+
+Hello all,
+
+Owen and I went to PyCon last week and learned many new and useful Python related topics!  Below 
+is
+
+Materials can be found in this directory: 
+
+XXXX
+
+folders ending in _Tut contain the contents of a 3 hour tutorial and those that end in _Talk contain notes for a ~30min talk. 
+
+Major Conference Themes:
+1) Testing: 
+There has been a widespread shift away from python's default unittest package (as well we nose tests ... nose is no longer supported by the way) to pytest:
+
+http://pytest.org/latest/
+
+pytest is compatible with legacy nose/unittest and offers quite a bit of additional functionality.  Two features that I found really nice was that one typically only needs to write one type of test using the default "asset" keyword as opposed to using the various different test types in unit test, e.g. assertEquals, assertLessThan, etc.  Second, pytest produces an automatic unit test coverage report and refers you to lines in your code of parts of functions that are not tested, e.g. suppose you have an if, elif, elif, else statment in your code and your forgot to test the second elif block.  pytest will discover this and print out the file and line number of the start of the second elif statement so that you can go back and add more coverage. The idea of fixtures in pytest is also quite powerful and helps the build up/break down process around unit tests as well as eliminating boilerplate code related to repeatedly running the same test for different inputs.       
+
+2) The Python "build",test,distribute process: 
+-- Python Wheel files (e.g. .whl) are the new standard for binary package distribution and 
+   should be used in place of eggs.  Here is a list of whl pros:   
+   http://pythonwheels.com/
+   my favorite is number 3.
+-- The process of automating build, release, test, package (e.g. submit to PyPI or an internal package server) is becoming increasingly simple, automated, and low cost (free in severalj cases).  During one of the tutorials, we set up a new github repo, and configured droid.io to recognize when a new commit was pushed to the repo, after which it would run the unit tests and send and email on which tests failed as well a unit test coverage report.  The typical workflow of contributing new code to say pandas, one will fork the repo, make changes, push, which triggers unit tests to run.  If any tests fail, then no one will look at your code for code review.  If your tests pass, then code review begins and if you pass review the code gets mergered into master.  The process of building binaries from master also appears to be becoming fairly simple.  We learned how to automatically generate new documentation using sphynx, upload to read the docs, and deploy to PyPI.  More than one person mentioned that the entire build,release,distribution took them a matter of hours to set up and is pretty much handas off from them and these processes are setup,configured, and maintained by the developers themselves. 
+
+3) C/C++ Extensions for Python: 
+There were several talks related to C/C++ extensions for Python.  I learned two new ways to do it other 
+than using boost.Python.  The first is using the default C extensions method:
+
+https://docs.python.org/2/extending/extending.html
+
+which my take was to avoid and the second was to use the C foreign function interface package: 
+
+https://cffi.readthedocs.io/en/latest/
+
+which is demoed in the /PyCon/House_Can_Prob/PyCon2016/solution3.py 
+
+file where I have effectively inlined C code as well as written a Python to C object matrix conversion 
+function.  It is interesting to note that the this function has the same goal as the rolling_sum function 
+in pandas however runs ~10x faster for small dataframes (say 5x5 or smaller) and ~2x faster for 
+~1000x1000 dataframes.  I am very interested in testing this out on a windows machines (it worked out of the box on debian linux).   
+
+4) Cloud computing: 
+Many companies (especially smaller firms) appear to be making extensive use, and some are entirely based on, cloud computing services. AWS (amazon web services) is the main one however a few others were mentioned including Linode, IBM, and Google's cloud services.  For example, a capital one data scientist told me that his team is completely on the cloud and found it more cost effective, stable, and better performing than internal options. AWS lambda is a new offering from AWS that is very interesting.  Their main selling point is that their system is 'serverless' and you only pay for compute time (e.g. only when you are calling your functions .. not during down time or time it takes to install software on their machines).  They have a Python API as well.  Here is a link: https://aws.amazon.com/lambda/ 
+
+Interesting Tutorials:
+I went to four 3 hour tutorials and all contents/github repos are in the PyCon folder in folder whose last four characters are _Tut.  
+
+-- Sphinx/Read The Docs: 
+https://us.pycon.org/2016/schedule/presentation/1648/
+- gave examples on how to write your doc strings using RST (restructured text), automatically build 
+a documentation website, and host this site on read the docs.  Also demonstrated how to automate the 
+process of updating as documentation/code changes.  See the Sphinx_tut folder.  Here is my example: 
+
+http://pycon-tutorial-steve98564.readthedocs.io/en/latest/library.html
+
+-- Document/Build/Test/Deploy tutorial
+https://us.pycon.org/2016/schedule/presentation/1814/
+- Discussed how to set up an automated build/test/deploy process.  See the CreateBuildTest_Tut folder.
+
+-- Documenting code with Pytest: 
+https://us.pycon.org/2016/schedule/presentation/1815/
+- The best tutorial overall.  Discussed how to use pytest as well as several of its features that make is 
+preferable over unitest or nose.  The folder is UnitTest_tut
+
+-- Python Epiphanies 
+https://us.pycon.org/2016/schedule/presentation/1799/
+- Gave a good overview of some several Python features in an example based format.  This talk was in the 
+form of a long IPython notebook that can be found in /Epiphanies_Tut/Python-Epiphanies-All.pdf
+
+Interesting Booths: 
+-- DataRobot:
+https://www.datarobot.com/
+This was IMO the most exciting booth, and most exciting startup in the Python world. The aim of this company is to automate model training, testing, and selection.  They mainly use scikit-learn, R, and in house models. They also have a nice dashboard for model output visualization and an API available as well (only if you sign up or the product). Many top finishes for Kaggle competitions work for this company. I was told that the cost of an internal install is $3600/core/year 
+
+-- Intel:
+Working on their own distribution of Python (together with Continuum) that is supposed to run scientific python code faster:
+https://software.intel.com/en-us/python-distribution
+-- Google: tensor flow is something to look at ... has a Python API available. 
+-- Num Focus: I met one of the leads of num focus ... it may be worthwhile to consider donating back to some of the open source projects that we make extensive use of (e.g. pandas, ipython, numpy, scipy, etc.)
+-- house canary
+http://www.housecanary.com/
+Intersting startup in the space of real estate valuation.  Mentioned to me that they advise hedge funds.  One strategy employed by magnetar for example is to build ~10k houses and rent them out.  How to set rent, valuations ... services like house canary can help. 
+-- Linode: Has cloud computing services as a lower price point than AWS.
+
+Trivia:
+-- Guido van Rossum said the first version of google was implemented in python!
+-- Excellent talk on converting python programs to to one line: https://github.com/csvoss
+-- Python 2.7 will no longer have any major releases ... will be unsupported after 2020 and there will 
+   be a party at PyCon 2020 to switch over to Python 3! 
+

@@ -1,0 +1,2 @@
+github: https://github.com/jakevdp
+http://staff.washington.edu/jakevdp/research.html

@@ -1,0 +1,6 @@
+Notes for the Life Cycle of a Python Class Talk
+bit.ly/pyconslides
+
+gives example why it is important to inherit from object when defining classes 
+
+
